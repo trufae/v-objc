@@ -1,4 +1,4 @@
-![CI](https://github.com/radare/v-r2/workflows/CI/badge.svg)
+![CI](https://github.com/trufae/v-objc/workflows/CI/badge.svg)
 
 objc.v
 ======
