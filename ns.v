@@ -17,5 +17,5 @@ pub fn (id Id)drain() {
 pub fn new_nsstring(a string) Id {
 	nss_klass := get_class('NSString')
 	init := sel.register('stringWithUTF8String:')
-	return msg_send (nss_klass, init, a.str)
+	return msg_send (nss_klass, init, byteptr(a.str))
 }
