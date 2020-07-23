@@ -35,5 +35,8 @@ pub fn (self NSString)str() string {
 
 pub fn (self NSString)append(s string) NSString {
 	append_str := sel.register('stringByAppendingString:')
-	return  msg_send3 (self, append_str, byteptr(s.str))
+	tail := new_nsstring(s)
+	res := msg_send3 (self, append_str, tail)
+	tail.release()
+	return res
 }

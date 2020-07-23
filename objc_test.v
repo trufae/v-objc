@@ -17,5 +17,8 @@ fn test_autoreleasepool() {
 fn test_nsstring() {
 	res := new_nsstring('Hello World')
 	assert res.str() == 'Hello World'
+	res2 := res.append(' olleH')
+	assert res2.str() == 'Hello World olleH'
 	res.release()
+	res2.release()
 }
