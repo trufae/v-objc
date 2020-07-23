@@ -15,6 +15,7 @@ fn test_autoreleasepool() {
 }
 
 fn test_nsstring() {
-// XXX segfaults	res := new_nsstring('Hello World')
-	// println('$res')
+	res := new_nsstring('Hello World')
+	assert res != 0
+	eprintln('$res')
 }
