@@ -1,3 +1,5 @@
+![CI](https://github.com/radare/v-r2/workflows/CI/badge.svg)
+
 objc.v
 ======
 
