@@ -30,5 +30,5 @@ pub fn new_nsstring(a string) NSString {
 pub fn (self NSString)str() string {
 	utf8string := sel.register('UTF8String')
 	r := msg_send2 (self, utf8string)
-	return tos_clone(r)
+	return tos_clone(*r)
 }
