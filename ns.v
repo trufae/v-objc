@@ -13,8 +13,8 @@ pub fn (id Id)drain() {
 	msg_send2(id, sel.register('drain'))
 }
 
-pub fn (id Id)free() {
-	msg_send2(id, sel.register('free'))
+pub fn (id Id)release() {
+	msg_send2(id, sel.register('release'))
 }
 
 

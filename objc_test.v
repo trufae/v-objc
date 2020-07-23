@@ -21,4 +21,5 @@ fn test_nsstring() {
 	s := res.str()
 	assert s == 'Hello World'
 	eprintln('$res')
+	res.release()
 }
