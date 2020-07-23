@@ -20,8 +20,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install V
       run: |
-        sudo apt update > /dev/null
-        sudo apt install pkg-config
         pushd /tmp
         git clone https://github.com/vlang/v
         cd v 
