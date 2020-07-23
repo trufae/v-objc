@@ -13,9 +13,22 @@ pub fn (id Id)drain() {
 	msg_send2(id, sel.register('drain'))
 }
 
+pub fn (id Id)free() {
+	msg_send2(id, sel.register('free'))
+}
+
+
+type NSString Id
+
 // NSString
-pub fn new_nsstring(a string) Id {
+pub fn new_nsstring(a string) NSString {
 	nss_klass := get_class('NSString')
 	init := sel.register('stringWithUTF8String:')
 	return msg_send3 (nss_klass, init, byteptr(a.str))
+}
+
+pub fn (self NSString)str() string {
+	utf8string := sel.register('UTF8String')
+	r := msg_send2 (self, utf8string)
+	return tos_clone(r)
 }
