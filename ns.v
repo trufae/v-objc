@@ -32,3 +32,8 @@ pub fn (self NSString)str() string {
 	r := msg_send2 (self, utf8string)
 	return tos_clone(*r)
 }
+
+pub fn (self NSString)append(s string) NSString {
+	append_str := sel.register('stringByAppendingString:')
+	return  msg_send3 (self, append_str, byteptr(s.str))
+}

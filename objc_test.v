@@ -16,10 +16,6 @@ fn test_autoreleasepool() {
 
 fn test_nsstring() {
 	res := new_nsstring('Hello World')
-	eprintln('$res')
-	eprintln('$res.str()')
-	s := res.str()
-	assert s == 'Hello World'
-	eprintln('$res')
+	assert res.str() == 'Hello World'
 	res.release()
 }
