@@ -17,17 +17,17 @@ fn C.objc_getClass(charptr) Class
 // fn C.objc_msgSend(voidptr, charptr, ...voidptr) int
 // fn C.objc_msgSend_stret(voidptr, charptr, ...voidptr) int
 
-fn msg_send_super(a Id, msg string, args ...voidptr) Id {
+pub fn msg_send_super(a Id, msg string, args ...voidptr) Id {
 	send := MsgSend(C.objc_msgSendSuper)
 	r := send (a, charptr(msg.str), args)
 	return Id(r)
 }
 
-fn get_class(klass string) Class {
+pub fn get_class(klass string) Class {
 	return Id(C.objc_getClass(klass.str))
 }
 
-fn msg_send(a Id, msg Sel, args ...voidptr) Id {
+pub fn msg_send(a Id, msg Sel, args ...voidptr) Id {
 	send := MsgSend(C.objc_msgSend)
 	r := send (a, msg, args)
 	return Id(r)
