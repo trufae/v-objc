@@ -9,14 +9,12 @@ Example
 -------
 
 ```go
-import objc.ns
+import trufae.objc
 
 fn main() {
-	ap := ns.new_nsautorelease_pool()
-
-	s := new_nsstring('hello world')
-	println('$s')
-
+	ap := objc.new_autorelease_pool()
+	a := objc.new_nsstring('hello world')
+	println('$a') // automatic .str() unwrapping
 	ap.drain()
 }
 
