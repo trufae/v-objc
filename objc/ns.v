@@ -3,7 +3,10 @@ module objc
 import objc.sel
 
 // NSAutoReleasePool
-pub fn new_autorelease_pool() Id {
+
+type NSAutoReleasePool Id
+
+pub fn new_nsautorelease_pool() NSAutoReleasePool {
 	narp_klass := get_class('NSAutoReleasePool')
 	narp := msg_send2 (narp_klass, sel.register('alloc'))
 	return msg_send2 (narp, sel.register('init'))

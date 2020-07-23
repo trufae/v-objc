@@ -1,0 +1,1 @@
+extern void UIApplicationMain(int, ...);

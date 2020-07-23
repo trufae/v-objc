@@ -1,6 +1,6 @@
 import objc
-
 import objc.sel as sel
+
 fn test_selectors() {
 	alloc := sel.register('alloc')
 	assert alloc != 0
@@ -9,7 +9,7 @@ fn test_selectors() {
 }
 
 fn test_autoreleasepool() {
-	ap := objc.new_autorelease_pool()
+	ap := objc.new_nsautorelease_pool()
 	ap.drain()
 }
 
