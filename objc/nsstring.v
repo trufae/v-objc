@@ -1,27 +1,32 @@
 module objc
 
-import objc.sel
-
-type NSString Id
+type NSString = voidptr
 
 // NSString
 pub fn new_nsstring(a string) NSString {
 	nss_klass := get_class('NSString')
-	init := sel.register('stringWithUTF8String:')
+	init := sel_register('stringWithUTF8String:')
 	return msg_send3 (nss_klass, init, byteptr(a.str))
 }
 
 pub fn (self NSString)str() string {
-	utf8string := sel.register('UTF8String')
-	r := msg_send2 (self, utf8string)
-	return tos_clone(*r)
+	r := msg_send2 (self, sel_register('UTF8String'))
+	return tos_clone(r)
 }
 
 pub fn (self NSString)append(s string) NSString {
-	append_str := sel.register('stringByAppendingString:')
+	aps := sel_register('stringByAppendingString:')
 	tail := new_nsstring(s)
-	res := msg_send3 (self, append_str, tail)
+	res := msg_send3 (self, aps, tail)
 	tail.release()
 	return res
+}
+
+pub fn (self NSString)release() {
+	msg_send2 (self, sel_register('release'))
+}
+
+pub fn (self NSString)drain() {
+	msg_send2 (self, sel_register('drain'))
 }
 
