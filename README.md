@@ -3,9 +3,26 @@
 objc.v
 ======
 
-Objective-C bindings for V
+Interacting with Objective-C from V
+
+This is needed for several things:
+
+* Replace the `#` prefix for inlining objc code in `_darwin` files
+* Write iOS and macOS apps in pure V
+* No .m code involved
+* UIKit and other libraries will be set on top of this one
 
 -- by pancake
+
+Bugs
+----
+
+This library is under development, the V compiler is not handling well
+some constructions and ends up generating segfaultable code.
+
+Links for inspiration:
+
+* https://github.com/frida/frida-objc-bridge/blob/master/index.js
 
 Example
 -------
