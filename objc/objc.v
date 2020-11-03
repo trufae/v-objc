@@ -21,7 +21,8 @@ fn C.objc_getClassList(voidptr, int) int
 // fn C.objc_msgSend_stret(voidptr, charptr, ...voidptr) int
 
 pub fn get_class(klass string) Class {
-	return Id(C.objc_getClass(klass.str))
+	return C.objc_getClass(klass.str)
+	// return Id(C.objc_getClass(klass.str))
 }
 
 pub fn get_class_list(a voidptr, b int) int {

@@ -1,6 +1,6 @@
 module objc
 
-type Class = voidptr
+type Class = Id
 
 fn C.class_addMethod(voidptr, voidptr, voidptr, string)
 fn C.class_addProtocol(voidptr, voidptr) bool

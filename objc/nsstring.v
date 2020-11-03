@@ -1,12 +1,12 @@
 module objc
 
-type NSString = voidptr
+type NSString = &Id
 
 // NSString
 pub fn new_nsstring(a string) NSString {
 	nss_klass := get_class('NSString')
 	init := sel_register('stringWithUTF8String:')
-	return msg_send3 (nss_klass, init, byteptr(a.str))
+	return NSString(msg_send3 (nss_klass, init, byteptr(a.str)))
 }
 
 pub fn (self NSString)str() string {

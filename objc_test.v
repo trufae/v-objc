@@ -1,10 +1,9 @@
 import objc
-import objc.sel as sel
 
 fn test_selectors() {
-	alloc := sel.register('alloc')
+	alloc := objc.sel_register('alloc')
 	assert alloc != 0
-	init := sel.register('init')
+	init := objc.sel_register('init')
 	assert init != 0
 }
 
