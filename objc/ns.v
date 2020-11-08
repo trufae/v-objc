@@ -1,6 +1,6 @@
 module objc
 
-type NSAutoReleasePool = Id
+type NSAutoReleasePool = voidptr // Id
 
 pub fn (arp &NSAutoReleasePool)drain() {
 	msg_send2(Id(arp), sel_register('drain'))

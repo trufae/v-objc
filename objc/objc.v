@@ -7,7 +7,7 @@ module objc
 
 type Id = voidptr
 type Sel = byteptr
-type Class = Id
+type Class = voidptr
 
 type MsgSend2 = fn (Id, Sel) voidptr
 type MsgSend3 = fn (Id, Sel, Id) voidptr

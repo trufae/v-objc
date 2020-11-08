@@ -1,6 +1,6 @@
 module objc
 
-type NSString = &Id
+type NSString = voidptr
 
 // NSString
 pub fn new_nsstring(a string) NSString {
@@ -11,7 +11,7 @@ pub fn new_nsstring(a string) NSString {
 
 pub fn (self NSString)str() string {
 	r := msg_send2 (self, sel_register('UTF8String'))
-	return tos_clone(r)
+	return tos_clone(voidptr(r))
 }
 
 pub fn (self NSString)append(s string) NSString {
