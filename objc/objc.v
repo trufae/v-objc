@@ -90,6 +90,17 @@ pub fn register_protocol(a voidptr) {
 }
 
 /*
+
+pub fn call(path string, args []string) voidptr {
+	steps := path.split('.')
+	mut count := 0
+	mut base := voidptr(0)
+	for step in steps {
+		if count == 0 {
+			base =
+		}
+	}
+}
     "objc_msgSend": function (address) {
                     this.objc_msgSend = address;
     },
