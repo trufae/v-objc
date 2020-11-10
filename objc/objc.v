@@ -44,8 +44,8 @@ pub fn msg_send2(a Id, msg Sel) Id {
 	return send (a, msg)
 }
 
-pub fn lookup_class(a voidptr) voidptr {
-	return C.objc_lookUpClass(a)
+pub fn lookup_class(a string) voidptr {
+	return C.objc_lookUpClass(a.str)
 }
 
 

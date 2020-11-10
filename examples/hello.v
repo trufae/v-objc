@@ -1,15 +1,20 @@
 import objc
+import objc.ns
 
 fn test_hello_world() {
-	mut a := objc.new_nsstring('hello world')
+	mut a := ns.new_nsstring('hello world')
 	a = a.append(' and universe')
 	b := a.str()
 	println('$b')
 }
 
-fn test_nsbundle() {
-	nsbundle := objc.nsbundle()
-	eprintln('$nsbundle')
+fn test_nsbundle()? {
+	main_bundle := ns.main_bundle()?
+	bundle_id := main_bundle.bundle_identifier() or { '' }
+	exec_path := main_bundle.executable_path()?
+	// nsbundle := objc.nsbundle()
+	eprintln('bundle_id: $bundle_id')
+	eprintln('exec_path: $exec_path')
 /*
 	mut a := nsbundle.main_bundle() or {
 		panic(err)
@@ -19,10 +24,10 @@ fn test_nsbundle() {
 }
 
 fn main() {
-	ap := objc.new_nsautorelease_pool()
+	ap := ns.new_nsautorelease_pool()
 
 	test_hello_world()
-	test_nsbundle()
+	test_nsbundle()?
 
 	ap.drain()
 }
