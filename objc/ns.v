@@ -9,11 +9,6 @@ type NSAutoReleasePool = voidptr // Id
 pub type NSBundle = voidptr
 // type NSBundle = C.NSBundle
 
-fn C.CFBundleGetMainBundle() NSString
-
-// _CF.CFBundleCopyLocalizedString
-// _CF.CFBundleGetMainBundle
-
 pub fn nsbundle() string {
 	a := C.CFBundleGetMainBundle()
 	return a.str()
